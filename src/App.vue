@@ -18,4 +18,10 @@ import Test from '@/test.vue'
 import { Lock } from '@element-plus/icons-vue'
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+div {
+  h1 {
+    color: $base-color;
+  }
+}
+</style>

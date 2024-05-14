@@ -49,4 +49,13 @@ export default defineConfig({
       symbolId: 'icon-[dir]-[name]',
     }),
   ],
+  css: {
+    //scss全局变量配置
+    preprocessorOptions: {
+      scss: {
+        javascriptEnabled: true,
+        additionalData: '@import "./src/styles/variable.scss";',
+      },
+    },
+  },
 })

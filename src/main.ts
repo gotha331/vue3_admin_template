@@ -4,6 +4,7 @@ import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import zhCn from 'element-plus/es/locale/lang/zh-cn'
 import 'virtual:svg-icons-register' // svg插件需要的配置代码
+import '@/styles/index.scss' //引入模板的全局样式
 
 const app = createApp(App)
 console.log(import.meta.env)
