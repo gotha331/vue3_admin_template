@@ -9,6 +9,7 @@
         <Lock />
       </el-icon>
     </div>
+    <svg-icon name="user" color="pink" width="20px" height="20px"></svg-icon>
   </div>
 </template>
 
