@@ -5,4 +5,7 @@ createApp(App).mount('#app')
 
 const fun = () => {
   console.log('test')
+
+    console.log(123);
+  
 }
