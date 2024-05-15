@@ -16,6 +16,23 @@
 <script setup lang="ts">
 import Test from '@/test.vue'
 import { Lock } from '@element-plus/icons-vue'
+
+import { onMounted } from 'vue'
+import request from '@/utils/request'
+
+onMounted(() => {
+  request({
+    url: '/api/user/login',
+    method: 'post',
+    data: {
+      username: 'admin',
+      password: "111111"
+    }
+  }).then(res => {
+    console.log(res);
+
+  })
+})
 </script>
 
 <style lang="scss" scoped>
