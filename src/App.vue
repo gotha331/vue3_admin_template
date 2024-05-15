@@ -23,12 +23,10 @@ import { reqLogin } from './api/user'
 onMounted(() => {
   let data = {
     username: 'admin',
-    password: "111111"
+    password: '111111',
   }
   reqLogin(data)
-
 })
-
 </script>
 
 <style lang="scss" scoped>
