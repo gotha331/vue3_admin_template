@@ -52,7 +52,7 @@ export default defineConfig(({ command }) => {
       }),
       viteMockServe({
         mockPath: 'mock',
-        enable: true,
+        enable: command === 'serve',
       }),
     ],
     css: {

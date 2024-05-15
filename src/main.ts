@@ -9,6 +9,7 @@ import '@/styles/index.scss' //引入模板的全局样式
 // 引入自定义插件对象：注册整个项目全局组件
 import globalComponent from '@/components/index.ts'
 import router from './router'
+import pinia from './store/'
 
 const app = createApp(App)
 console.log(import.meta.env)
@@ -16,6 +17,7 @@ console.log(import.meta.env)
 // 安装自定义插件
 app.use(globalComponent)
 app.use(router)
+app.use(pinia)
 
 app.use(ElementPlus, {
   locale: zhCn,
