@@ -18,20 +18,17 @@ import Test from '@/test.vue'
 import { Lock } from '@element-plus/icons-vue'
 
 import { onMounted } from 'vue'
-import request from '@/utils/request'
+import { reqLogin } from './api/user'
 
 onMounted(() => {
-  request({
-    url: '/api/user/login',
-    method: 'post',
-    data: {
-      username: 'admin',
-      password: '111111',
-    },
-  }).then((res) => {
-    console.log(res)
-  })
+  let data = {
+    username: 'admin',
+    password: "111111"
+  }
+  reqLogin(data)
+
 })
+
 </script>
 
 <style lang="scss" scoped>
