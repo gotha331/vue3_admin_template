@@ -19,6 +19,6 @@ export const constantRoute = [
   {
     path: '/:pathMatch(.*)*',
     redirect: '/404',
-    name:'any'
+    name: 'any',
   },
 ]
