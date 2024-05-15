@@ -1,12 +1,12 @@
 <template>
   <el-col :span="12" :xs="0"></el-col>
   <el-col :span="12" :xs="24">
-    <el-form>
+    <el-form :model="loginForm" :rules="rules" ref="loginForms">
       <h1>欢迎来到vue3后台管理系统</h1>
-      <el-form-item>
+      <el-form-item prop="username">
         <el-input :prefix-icon="User" v-model="loginForm.username" />
       </el-form-item>
-      <el-form-item>
+      <el-form-item prop="password">
         <el-input :prefix-icon="Lock" type="password" show-password v-model="loginForm.password" />
       </el-form-item>
       <el-form-item>
@@ -25,6 +25,7 @@ import { User, Lock } from '@element-plus/icons-vue'
 import useUserStore from '@/store/modules/user'
 import { useRouter } from 'vue-router'
 
+let loginForms = ref()
 let loading = ref(false)
 let useStore = useUserStore()
 let $router = useRouter()
@@ -33,6 +34,8 @@ let $router = useRouter()
 let loginForm = reactive({ username: '', password: '' })
 
 const login = async () => {
+  //保证全部表单校验通过再发送请求
+  await loginForms.value.validate()
   loading.value = true
   try {
     await useStore.userLogin(loginForm)
@@ -50,6 +53,16 @@ const login = async () => {
       message: (error as Error).message,
     })
   }
+}
+
+// 表单校验规则
+const rules = {
+  username: [
+    { required: true, min: 5, max: 10, message: '账号长度最少5位', trigger: 'change' }
+  ],
+  password: [
+    { required: true, min: 6, max: 10, message: '密码长度最少6位', trigger: 'change' }
+  ]
 }
 </script>
 
