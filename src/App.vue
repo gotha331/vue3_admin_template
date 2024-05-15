@@ -11,6 +11,8 @@
     </div>
     <svg-icon name="user" color="pink" width="20px" height="20px"></svg-icon>
   </div>
+
+  <router-view></router-view>
 </template>
 
 <script setup lang="ts">
