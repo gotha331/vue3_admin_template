@@ -26,11 +26,10 @@ onMounted(() => {
     method: 'post',
     data: {
       username: 'admin',
-      password: "111111"
-    }
-  }).then(res => {
-    console.log(res);
-
+      password: '111111',
+    },
+  }).then((res) => {
+    console.log(res)
   })
 })
 </script>
