@@ -1,5 +1,5 @@
 import path from 'path'
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 // import Icons from 'unplugin-icons/vite'
 // import IconsResolver from 'unplugin-icons/resolver'
@@ -12,7 +12,9 @@ import { viteMockServe } from 'vite-plugin-mock'
 const pathSrc = path.resolve(__dirname, 'src')
 
 // https://vitejs.dev/config/
-export default defineConfig(({ command }) => {
+export default defineConfig(({ command, mode }) => {
+  //获取各种环境下对应的变量
+  let env = loadEnv(mode, process.cwd())
   return {
     resolve: {
       alias: {
@@ -61,6 +63,15 @@ export default defineConfig(({ command }) => {
         scss: {
           javascriptEnabled: true,
           additionalData: '@import "./src/styles/variable.scss";',
+        },
+      },
+    },
+    server: {
+      proxy: {
+        [env.VITE_APP_BASE_API]: {
+          target: env.VITE_SERVER,
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\env.VITE_APP_BASE_API/, ''),
         },
       },
     },

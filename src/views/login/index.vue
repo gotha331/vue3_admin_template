@@ -7,7 +7,12 @@
         <el-input :prefix-icon="User" v-model="loginForm.username" />
       </el-form-item>
       <el-form-item prop="password">
-        <el-input :prefix-icon="Lock" type="password" show-password v-model="loginForm.password" />
+        <el-input
+          :prefix-icon="Lock"
+          type="password"
+          show-password
+          v-model="loginForm.password"
+        />
       </el-form-item>
       <el-form-item>
         <el-button :loading="loading" type="primary" @click="login">
@@ -58,11 +63,23 @@ const login = async () => {
 // 表单校验规则
 const rules = {
   username: [
-    { required: true, min: 5, max: 10, message: '账号长度最少5位', trigger: 'change' }
+    {
+      required: true,
+      min: 5,
+      max: 10,
+      message: '账号长度最少5位',
+      trigger: 'change',
+    },
   ],
   password: [
-    { required: true, min: 6, max: 10, message: '密码长度最少6位', trigger: 'change' }
-  ]
+    {
+      required: true,
+      min: 6,
+      max: 10,
+      message: '密码长度最少6位',
+      trigger: 'change',
+    },
+  ],
 }
 </script>
 
